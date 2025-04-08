@@ -2,7 +2,7 @@
   <header>
     <h2>{{ user.name }}'s Tasks</h2>
     <menu>
-      <button>Add Task</button>
+      <button (click)="showModal()">Add Task</button>
     </menu>
   </header>
 
@@ -17,3 +17,7 @@
     }
   </ul>
 </section>
+
+@if (modalVisible){
+<app-new-task />
+}

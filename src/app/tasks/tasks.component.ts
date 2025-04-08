@@ -1,16 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { User } from '../user/user.component';
 import { TaskComponent } from './task/task.component';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   @Input({ required: true }) user!: User;
+  modalVisible = false;
   dummyTasks = [
     {
       id: 't1',
@@ -47,5 +49,13 @@ export class TasksComponent {
     this.dummyTasks = this.dummyTasks.filter((t) => {
       return t.id != taskId;
     });
+  }
+
+  showModal() {
+    this.modalVisible = true;
+  }
+
+  hideModal() {
+    this.modalVisible = false;
   }
 }
