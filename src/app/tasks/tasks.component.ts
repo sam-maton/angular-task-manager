@@ -42,4 +42,10 @@ export class TasksComponent {
       return task.userId === this.user.id;
     });
   }
+
+  removeCompletedTask(taskId: string) {
+    this.dummyTasks = this.dummyTasks.filter((t) => {
+      return t.id != taskId;
+    });
+  }
 }
