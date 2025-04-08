@@ -8,6 +8,12 @@ import {
   Output
 } from '@angular/core';
 
+export type User = {
+  id: string;
+  avatar: string;
+  name: string;
+};
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -15,14 +21,12 @@ import {
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: User;
 
   @Output() selectUser = new EventEmitter<string>();
 
   get imagePath() {
-    return `assets/users/${this.avatar}`;
+    return `assets/users/${this.user.avatar}`;
   }
 
   // avatar = input.required<string>();
@@ -33,6 +37,6 @@ export class UserComponent {
   // imagePath = computed(() => `assets/users/${this.avatar()}`);
 
   onSelectUser() {
-    this.selectUser.emit(this.id);
+    this.selectUser.emit(this.user.id);
   }
 }
