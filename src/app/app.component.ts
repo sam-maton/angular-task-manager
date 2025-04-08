@@ -13,7 +13,7 @@ import { DUMMY_USERS } from './dummy-users';
 })
 export class AppComponent {
   users: User[] = DUMMY_USERS;
-  selectedUser: User = this.users[0];
+  selectedUser?: User;
 
   onSelectUser(id: string) {
     const newUser = this.users.find((u) => {

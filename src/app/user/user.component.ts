@@ -8,11 +8,11 @@ import {
   Output
 } from '@angular/core';
 
-export type User = {
+export interface User {
   id: string;
   avatar: string;
   name: string;
-};
+}
 
 @Component({
   selector: 'app-user',
