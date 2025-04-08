@@ -22,6 +22,7 @@ export interface User {
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
+  @Input() selected = false;
 
   @Output() selectUser = new EventEmitter<string>();
 
