@@ -9,15 +9,12 @@
   <ul>
     @for (task of selectedUserTasks; track $index) {
     <li>
-      <app-task
-        [task]="task"
-        (setCompleted)="removeCompletedTask($event)"
-      ></app-task>
+      <app-task [task]="task"></app-task>
     </li>
     }
   </ul>
 </section>
 
 @if (modalVisible){
-<app-new-task (close)="hideModal()" (add)="onAddTask($event)" />
+<app-new-task (close)="hideModal()" [userId]="user.id" />
 }

@@ -5,7 +5,7 @@ import { NewTaskData } from './new-task/new-task.component';
   providedIn: 'root'
 })
 export class TasksService {
-  tasks = [
+  private tasks = [
     {
       id: 't1',
       userId: 'u1',
@@ -31,6 +31,14 @@ export class TasksService {
     }
   ];
 
+  constructor() {
+    const tasks = localStorage.getItem('storedTasks');
+
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
+  }
+
   getUserTasks(userId: string) {
     return this.tasks.filter((task) => {
       return task.userId === userId;
@@ -45,11 +53,17 @@ export class TasksService {
       dueDate: taskData.date,
       userId: userId
     });
+    this.saveTasks();
   }
 
-  removeTasks(taskId: string) {
+  removeTask(taskId: string) {
     this.tasks = this.tasks.filter((t) => {
       return t.id != taskId;
     });
+    this.saveTasks();
+  }
+
+  private saveTasks() {
+    localStorage.setItem('storedTasks', JSON.stringify(this.tasks));
   }
 }

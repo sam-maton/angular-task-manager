@@ -24,8 +24,6 @@ export class TasksComponent {
     return this.tasksService.getUserTasks(this.user.id);
   }
 
-  removeCompletedTask(taskId: string) {}
-
   showModal() {
     this.modalVisible = true;
   }
@@ -33,6 +31,4 @@ export class TasksComponent {
   hideModal() {
     this.modalVisible = false;
   }
-
-  onAddTask(taskData: NewTaskData) {}
 }

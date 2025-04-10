@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardComponent } from '../../shared/card/card.component';
 import { DatePipe } from '@angular/common';
+import { TasksService } from '../tasks.service';
 
 export interface Task {
   id: string;
@@ -20,9 +21,9 @@ export interface Task {
 export class TaskComponent {
   @Input({ required: true }) task!: Task;
 
-  @Output() setCompleted = new EventEmitter<string>();
+  constructor(private tasksService: TasksService) {}
 
   completeTask() {
-    this.setCompleted.emit(this.task.id);
+    this.tasksService.removeTask(this.task.id);
   }
 }
