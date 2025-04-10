@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { User } from '../user/user.component';
 import { TaskComponent } from './task/task.component';
-import { NewTaskComponent } from './new-task/new-task.component';
+import {
+  NewTaskComponent,
+  type NewTaskData
+} from './new-task/new-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -57,5 +60,15 @@ export class TasksComponent {
 
   hideModal() {
     this.modalVisible = false;
+  }
+
+  onAddTask(taskData: NewTaskData) {
+    this.dummyTasks.unshift({
+      id: new Date().getTime.toString(),
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date,
+      userId: this.user.id
+    });
   }
 }

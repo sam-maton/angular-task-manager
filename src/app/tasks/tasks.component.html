@@ -19,5 +19,5 @@
 </section>
 
 @if (modalVisible){
-<app-new-task />
+<app-new-task (close)="hideModal()" (add)="onAddTask($event)" />
 }
