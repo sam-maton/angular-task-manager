@@ -1,12 +1,4 @@
-import {
-  Component,
-  computed,
-  EventEmitter,
-  Input,
-  input,
-  output,
-  Output
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CardComponent } from '../shared/card/card.component';
 
