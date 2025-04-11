@@ -28,6 +28,13 @@ export class TasksService {
       summary:
         'Prepare and describe an issue template which will help with project management',
       dueDate: '2024-06-15'
+    },
+    {
+      id: 't4',
+      userId: 'u4',
+      title: 'Update blog',
+      summary: 'Prepare and publish a new blog article.',
+      dueDate: '2024-06-15'
     }
   ];
 
